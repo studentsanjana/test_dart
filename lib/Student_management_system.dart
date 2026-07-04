@@ -134,12 +134,16 @@ void main()
           stdout.write("Enter your percentage(don't include percentage symbol) : ");
           double percentage = double.parse(stdin.readLineSync()!);
 
+          if(percentage < 0 || percentage >= 100)
+          {
+            throw Exception("Please enter the percentage range in (0 - 100)");
+          }
 
           std.add(sname, age, course, percentage);
         }
         catch(error)
         {
-          print("You are not elligible please enter age above 16");
+          print(error);
         }
         break;
 
